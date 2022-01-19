@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.containsString;
-
+import static org.hamcrest.Matchers.lessThan;
 public class TestGreeter {
 
   private Greeter greeter;
@@ -39,5 +39,11 @@ public class TestGreeter {
     String someone = "World, Thanks you making me Happy";
 
     assertThat(greeter.greet(someone).length(), is(greaterThan(someone.length())));
+  }
+  @Test
+  public void greetShouldIncludeGreetingMessage() {
+    String someone = "World, Thanks you making me Happy";
+
+    assertThat(greeter.greet(someone).length(), is(lessThan(someone.length())));
   }
 }
